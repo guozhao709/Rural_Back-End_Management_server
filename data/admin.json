@@ -1,0 +1,37 @@
+[
+  {
+    "adminID": "s01",
+    "adminname": "admin",
+    "password": "123456",
+    "phone": "13800000000",
+    "role": "super_admin"
+  },
+  {
+    "adminID": "c01",
+    "adminname": "guozhao",
+    "password": "280101",
+    "phone": "13800000001",
+    "role": "common_admin"
+  },
+  {
+    "adminname": "guozhao1",
+    "password": "280101",
+    "phone": "13800000001",
+    "role": "common_admin",
+    "adminID": "c02"
+  },
+  {
+    "adminname": "guozhao2",
+    "password": "280101",
+    "phone": "13800000001",
+    "role": "common_admin",
+    "adminID": "c03"
+  },
+  {
+    "adminname": "guozhao3",
+    "password": "280101",
+    "phone": "13800000001",
+    "role": "super_admin",
+    "adminID": "s02"
+  }
+]
