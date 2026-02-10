@@ -33,5 +33,19 @@
     "phone": "13800000001",
     "role": "super_admin",
     "adminID": "s02"
+  },
+  {
+    "adminname": "guozhao5",
+    "password": "280101",
+    "phone": "13800000005",
+    "role": "common_admin",
+    "adminID": "c04"
+  },
+  {
+    "adminname": "guozhao123",
+    "password": "280101",
+    "phone": "13289326769",
+    "role": "super_admin",
+    "adminID": "s03"
   }
 ]
