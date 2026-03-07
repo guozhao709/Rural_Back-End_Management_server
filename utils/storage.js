@@ -23,21 +23,26 @@ export const readAdmin = async () => {
 
 // 追加写入新的信息
 export const writeAdmin = async (data) => {
-    try {
-        const adminArr = await readAdmin();
-        adminArr.push(data);
-        await fs.writeJson(ADMIN_FILE, adminArr, { spaces: 2 });
-        console.log("Admin data written successfully");
-        return true;
-    } catch (err) {
-        console.error("Error writing admin file:", err);
-        return false;
-    }
-}
+  try {
+    const adminArr = await readAdmin();
+    adminArr.push(data);
+    await fs.writeJson(ADMIN_FILE, adminArr, { spaces: 2 });
+    console.log("Admin data written successfully");
+    return true;
+  } catch (err) {
+    console.error("Error writing admin file:", err);
+    return false;
+  }
+};
 
-
-
-
-
-
-
+// 覆盖写入全部信息
+export const writeAllAdmin = async (adminArr) => {
+  try {
+    await fs.writeJson(ADMIN_FILE, adminArr, { spaces: 2 });
+    console.log("Admin data written successfully");
+    return true;
+  } catch (err) {
+    console.error("Error writing admin file:", err);
+    return false;
+  }
+};

@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/admin/auth.js";
+import administratorRoutes from "./routes/admin/function/administrator.js"
 import { authMiddleware } from "./utils/jwt.js";
 import cors from "cors";
 
@@ -15,13 +16,16 @@ app.use(cors({
 // 用来解析 json文件
 app.use(express.json())
 
+// 登录路由
 app.use("/admin/auth", authRoutes);
+
+// 侧栏功能路由
+// 1. 管理员管理路由
+app.use("/admin/administrator", authMiddleware, administratorRoutes);
 
 app.get("/", authMiddleware, (req, res) => {
   res.send("Hello, World!");
 });
-
-
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
