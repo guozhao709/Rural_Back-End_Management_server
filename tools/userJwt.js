@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 
 // 密钥
-const secret_key = "guozhao";
+const secret_key = "Userguozhao";
 
 // 生成管理员的token
-export const getAdminToken = (admin) => {
-  const {adminname, phone } = admin;
-  const token = jwt.sign({adminname, phone }, secret_key, {
+export const getUserToken = (user) => {
+  const {name, phone } = user;
+  const token = jwt.sign({name, phone}, secret_key, {
     expiresIn: "24h",
   });
   return token;

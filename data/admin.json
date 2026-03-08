@@ -10,14 +10,7 @@
     "adminID": "s02",
     "adminname": "郭武动",
     "password": "123456",
-    "phone": "13800000001",
-    "role": "super_admin"
-  },
-  {
-    "adminID": "s03",
-    "adminname": "郭钊",
-    "password": "123456",
-    "phone": "13800000000",
+    "phone": "13800000002",
     "role": "super_admin"
   }
 ]

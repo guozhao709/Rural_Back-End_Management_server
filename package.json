@@ -11,6 +11,7 @@
     "dev": "nodemon app.js"
   },
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "fs-extra": "^11.3.3",
