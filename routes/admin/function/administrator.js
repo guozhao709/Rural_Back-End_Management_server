@@ -34,5 +34,35 @@ router.post("/delAdmin", async(req, res)=>{
       });
 })
 
+// 更新管理员
+router.post("/updateAdmin", async(req, res)=>{
+  console.log(req.body);
+  
+    const {adminID, adminname, password, phone, role} = req.body;
+    const adminArr = await readAdmin();
+    const index = adminArr.findIndex((item) => item.adminID === adminID);
+
+    if(index === -1){
+        return res.status(404).json({
+            code: 404,
+            message: "管理员不存在",
+            data: null,
+          });
+    }
+
+    adminArr[index].adminname = adminname;
+    adminArr[index].password = password;
+    adminArr[index].phone = phone;
+    adminArr[index].role = role;
+
+    await writeAllAdmin(adminArr);
+    res.json({
+        code: 200,
+        message: "更新成功",
+        data: null,
+      });
+})
+
+
 
 export default router;
