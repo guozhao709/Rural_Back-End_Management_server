@@ -38,8 +38,9 @@ export const userRegister = (user) => {
 };
 
 // 用户登录查询
-export const userLogin = (user) => {
-  const { phone, password } = user;
+export const userLogin = (loginInfo) => {
+
+  const { phone, password } = loginInfo;
 
   // 1. 预编译语句（性能更好，且能防止 SQL 注入）
   const stmt = db.prepare(
@@ -50,7 +51,15 @@ export const userLogin = (user) => {
     // 2. 执行查询
     const user = stmt.get(phone, password);
 
+    if(!user){
+      return {
+        success: false,
+        message: "登录失败, 手机号或密码错误",
+      };
+    }
     // 3. 返回成功结果和用户信息
+    console.log("sql", user);
+    
     return {
       success: true,
       user,

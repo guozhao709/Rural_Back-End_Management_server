@@ -25,12 +25,15 @@ router.post("/register", (req, res) => {
 
 // 登录接口
 router.post("/login", (req, res) => {
-    const user = req.body;
-    const backData = userLogin(user);
+    
+    const loginInfo = req.body;
+    console.log('loginInfo', loginInfo);
+    
+    const backData = userLogin(loginInfo);
     if(backData.success){
 
         // 生成token
-        const token = getUserToken(user);
+        const token = getUserToken(loginInfo);
         if(!token){
             return res.status(500).json({
                 success: false,
@@ -42,7 +45,7 @@ router.post("/login", (req, res) => {
             success: true,
             message: "登录成功",
             token,
-            userInfo: backData.user
+            userInfo: backData.user,
         });
     }else{
         res.json({
