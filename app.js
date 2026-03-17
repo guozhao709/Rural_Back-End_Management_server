@@ -12,7 +12,8 @@ const app = express();
 app.use(cors({
   origin:[
     'http://127.0.0.1:8080', // B端
-    'http://127.0.0.1:8081'  // C端
+    'http://127.0.0.1:8081' , // C端
+    'http://127.0.0.1:5500'
   ], // 前端地址
   credentials: true, // 如果需要传递 cookie，必须开启
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // 允许的请求方法

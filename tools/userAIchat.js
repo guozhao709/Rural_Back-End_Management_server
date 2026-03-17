@@ -15,6 +15,10 @@ const client = new openAI({
 
 // 传入三个参数, 用户id, 用户输入的文本, 回调函数, 回调函数接收模型返回的文本
 const chatStream = async (userId, prompt, callback) => {
+
+  // 当前传入的id
+  console.log("当前的Id", userId);
+  
   // 先判断用户id是否存在
   if (!chatMap.has(userId)) {
     chatMap.set(userId, [
@@ -28,6 +32,8 @@ const chatStream = async (userId, prompt, callback) => {
   // 将用户输入的文本添加到对话记录中
   const messageQueue = chatMap.get(userId);
   messageQueue.push({ role: "user", content: prompt });
+
+  console.log("目前的消息队列:",messageQueue);
 
   // 当上下文超过10轮对话时, 移除最早的两轮对话, 但保留system角色
   if (messageQueue.length >= 21) {
